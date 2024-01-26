@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "blog"
+version = "0.1.0"
+description = "Блог-Новости"
+authors = ["Константин Мурадян <constantin37@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+Django = "5"
+
+[tool.poetry.group.dev.dependencies]
+pillow = "^10.2.0"
+django-bootstrap5 = "23.4"
+pytest = "^7.4.4"
+pytest-django = "^4.7.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
