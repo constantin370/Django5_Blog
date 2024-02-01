@@ -6,8 +6,8 @@ class Post(models.Model):
     title = models.CharField(verbose_name="Название новости", max_length=150)
     text = models.TextField(verbose_name="Тело статьи")
     # image = models.ImageField(verbose_name="Картинка")
-    date_create = models.DateTimeField(verbose_name="Дата создания")
-    data_update = models.DateTimeField(verbose_name="Дата обновления")
+    date_create = models.DateField(verbose_name="Дата создания", auto_now=True)
+    data_update = models.DateField(verbose_name="Дата обновления", null=True, blank=True)
     user = models.ForeignKey(CustomUser, verbose_name="Автор", on_delete=models.CASCADE)
 
     def __str__(self):
