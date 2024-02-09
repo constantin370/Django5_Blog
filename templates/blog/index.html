@@ -14,7 +14,7 @@
               <h3 class="mb-0">{{post.title|truncatewords:10}}</h3>
               <div class="mb-1 text-muted">{{post.date_create}}</div>
               <p class="card-text mb-auto">{{post.text|truncatewords:30}}</p>
-              <a href="{% url 'single_post' post.id %}" target="_blank" class="stretched-link">Продолжить читать</a>
+              <a href="{% url 'blog:single_post' post.id %}" target="_blank" class="stretched-link">Продолжить читать</a>
             </div>
           </div>
       {% endfor %}

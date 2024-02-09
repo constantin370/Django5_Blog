@@ -2,6 +2,7 @@ from django.urls import path
 from blog.views.post_list_view import PostListView
 from blog.views.post_detail_view import PostDetailView
 
+app_name = "blog"
 
 urlpatterns = [
     path('', PostListView.as_view(), name='main_page'),
