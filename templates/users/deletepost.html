@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <div class="container">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+      <h1 class="h2">Добовление поста:</h1>
+    </div>
+    <form method="post" class="card" style="padding: 15px;">
+      {% csrf_token %}
+      <h2>Удалить пост?</h2>
+      <p>Вы уверены в своих действиях?</p>
+      <p class="form-buttons">
+      <input type="submit" class="btn btn-danger" value="Удалить">
+        <a href="{% url 'homemanager' %}" class="btn btn-outline">Отмена</a>
+      </p>
+    </form>
+  </div>
+{% endblock %}

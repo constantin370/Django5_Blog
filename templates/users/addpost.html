@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container">
+  <div class="d-flex justify-content-betwien flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h1"> Добавить Запись: </h1>
+  </div>
+  <form method="post">
+    {% csrf_token %}
+    {{form|crispy}}
+    <button class="w-100 btn btn-primary"type="submit">Создать</button>
+  </form>
+</div>  
+{% endblock %}

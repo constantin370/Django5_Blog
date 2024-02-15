@@ -9,6 +9,7 @@ class Post(models.Model):
     date_create = models.DateField(verbose_name="Дата создания", auto_now=True)
     data_update = models.DateField(verbose_name="Дата обновления", null=True, blank=True)
     user = models.ForeignKey(CustomUser, verbose_name="Автор", on_delete=models.CASCADE)
+    publish = models.BooleanField(verbose_name="Опубликованно", default=False)
 
     def __str__(self):
         return f"{self.user}, название поста: {self.title}"
