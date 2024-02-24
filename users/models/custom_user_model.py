@@ -1,5 +1,7 @@
 from django.db import models
+
 from django.contrib.auth.models import AbstractUser
+
 from users.models.user_manager_model import UserManager
 
 

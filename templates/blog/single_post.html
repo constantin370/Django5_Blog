@@ -4,10 +4,11 @@
 {% endblock %}
 
 {% block content %}
-<article class="blog-post">
-  <h2 class="blog-post-title">{{ post.title }}</h2>
-  <p class="blog-post-meta"> <b>Дата создания:</b> {{ post.date_create }} <b>Автор:</b> <a href="#"> {{ post.user }}</a></p>
-  <hr>
-  <p>{{ post.text }}</p>
-</article>
+  <img src="{{ post.image.url }}" height="220" alt="dots icon">
+  <article class="blog-post">
+    <h2 class="blog-post-title">{{ post.title }}</h2>
+    <p class="blog-post-meta"> <b>Дата создания:</b> {{ post.date_create }} <b>Автор:</b> <a href="#"> {{ post.user }}</a></p>
+    <hr>
+    <p>{{ post.text|linebreaks}}</p>
+  </article>
 {% endblock %}
