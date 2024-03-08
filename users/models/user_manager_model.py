@@ -1,5 +1,7 @@
 from django.contrib.auth.models import BaseUserManager
 
+
+
 class UserManager(BaseUserManager):
     """Пользовательский менеджер моделей пользователей,
     в котором электронная почта является уникальным

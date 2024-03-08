@@ -1,0 +1,9 @@
+<ul class="dropdown-menu">
+    {% for li in topnavbarmenu %}
+      {% if li.is_prof_union %}
+        <li>
+          <a class="dropdown-item" href="{% url 'blog:cat_post' li.pk %}">{{li.first_name}}</a>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>

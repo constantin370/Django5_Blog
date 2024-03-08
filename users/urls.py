@@ -8,6 +8,13 @@ from users.views.update_manager_view import UpdateManagerPostView
 
 from users.views.delete_post_view import DeleteManagerPostView
 
+from users.views.register_user_view import register_user_view
+
+from users.views.register_create_user_view import RegistrationView
+
+
+app_name = "users"
+
 
 urlpatterns = [
     path('auth/', include('django.contrib.auth.urls')),
@@ -16,6 +23,8 @@ urlpatterns = [
     path('addpost/', CreateManagerPostView.as_view(), name='addpost'),
     path('updatepost/<int:pk>/', UpdateManagerPostView.as_view(), name='updatepost'),
     path('deletepost/<int:pk>/', DeleteManagerPostView.as_view(), name='deletepost'),
+    # path('register/', register_user_view, name='register'),
+    path('register/', RegistrationView.as_view(), name='register'),
 
 ]
 

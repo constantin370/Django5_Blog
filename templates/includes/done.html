@@ -1,0 +1,17 @@
+{% if messages %}
+  <div class="container">
+    <div class="row g-2">
+      <div class="col-6">
+        <div class="p-3 border bg-light">    
+          <h4 class="alert-heading">Отлично сработано!</h4>
+          <ul class="messages" >
+            {% for message in messages %}
+              <p><li {% if message.tags %} class="nav-item" {% endif %}></li>{{ message }}</p>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+ 

@@ -13,9 +13,9 @@ class CreateManagerPostView(LoginRequiredMixin, CreateView):
     template_name = "users/addpost.html"
     forms = PostForm
     success_url = "/manager/"
-    fields = ["title", "text", "publish"]
+    fields = ["title", "text", "image", "publish"]
 
-    def form_valid(self, form, **kwargs):
+    def form_valid(self, form):
         obj = form.save(commit=False)
         obj.user = self.request.user
         return super(CreateManagerPostView, self).form_valid(form)

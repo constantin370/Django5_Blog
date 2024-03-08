@@ -2,9 +2,9 @@
 {% block content %}
 
 <div class="container">
-  <div class="d-flex justify-content-betwien flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h1"> Менеджер статей: </h1>
-      <a class="btn btn-primary btn-sm" aria-current="page" href="{% url 'addpost' %}"> Добавить </a>
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2"> Менеджер статей: </h1>
+      <a class="btn btn-primary btn-sm" href="{% url 'users:addpost' %}"> Добавить </a>
   </div>
     <table class="table table-hover">
         <thead>
@@ -18,8 +18,8 @@
       <tr>
         <td>{{post.title|truncatewords:10}}</td>
         <td>{{post.date_create}}</td>
-        <td><a href="{% url 'updatepost' post.id %}">Редактировать</a></td>
-        <td><a href="{% url 'deletepost' post.id %}">Удалить</a></td>
+        <td><a href="{% url 'users:updatepost' post.id %}">Редактировать</a></td>
+        <td><a href="{% url 'users:deletepost' post.id %}">Удалить</a></td>
       {% endfor%}
       </tr>
     </tbody>
