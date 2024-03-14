@@ -12,45 +12,27 @@
           </li>
       </ul>
 
-        
         <ul class="nav nav-pills">
+
           <li class="nav-item">
             <a class="nav-link {% if view_name == 'blog:main_page' %} active {% endif %}"
-            href="{% url 'blog:main_page' %}">Главная страница</a>
+                href="{% url 'blog:main_page' %}">Главная страница</a>
           </li>
           <li class="nav-item dropdown" >
             <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Профсоюзы
             </a>
-            {% include "includes/dropdown_menu.html" %}
-            </li>
+            {% include "includes/dropdown_menu_proff_union.html" %}
+          </li>
 
           {% if request.user.is_authenticated %}
-
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="#">{{request.user.email}}</a>
+            <li class="nav-item dropdown" >
+              <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                {{request.user.email}}
+              </a>
+              {% include "includes/dropdown_menu_users_account.html" %}
             </li>
-
-            {% if request.user.is_prof_union %}
-              <li class="nav-item">
-                <a class="nav-link {% if view_name == 'users:homemanager' %} active {% endif %}" 
-                    href="{% url 'users:homemanager' %}">Менеджер</a>
-              </li>
-            {% endif %}
-
-            <li class="nav-item">
-              <a class="nav-link " aria-current="page" href="#">Кабинет</a>
-            </li>
-
-            <li class="nav-item">
-              <form method="post" action="{% url 'users:logout' %}">
-                {% csrf_token %}
-                <button class="btn btn-secondary" aria-current="page" type="submit">Выход</button>
-              </form>
-            </li>
-
           {% else %}
-
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="{% url 'users:login' %}">Вход</a>
             </li>
@@ -60,10 +42,9 @@
           {% endif %}
 
         </ul>
+        
       {% endwith %}
     </div>
   </nav>
-
-  {% include "includes/done.html" %}
-    
+  {% include "includes/done.html" %}  
 </header>

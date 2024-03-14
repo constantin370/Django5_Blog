@@ -18,13 +18,14 @@ app_name = "users"
 
 urlpatterns = [
     path('auth/', include('django.contrib.auth.urls')),
+    # path('manager/', HomeManagerView.as_view(), name='homemanager'),
     path('', HomeManagerView.as_view(), name='homemanager'),
     # path('accounts/logout/', views.logout_view, name='logout'),
     path('addpost/', CreateManagerPostView.as_view(), name='addpost'),
     path('updatepost/<int:pk>/', UpdateManagerPostView.as_view(), name='updatepost'),
     path('deletepost/<int:pk>/', DeleteManagerPostView.as_view(), name='deletepost'),
     # path('register/', register_user_view, name='register'),
-    path('register/', RegistrationView.as_view(), name='register'),
+    path('register/', register_user_view, name='register'),
 
 ]
 

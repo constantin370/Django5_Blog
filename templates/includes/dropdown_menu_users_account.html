@@ -1,0 +1,28 @@
+<ul class="dropdown-menu">
+
+  {% if request.user.is_prof_union %}
+    <li class="nav-item dropdown">
+      <a class="dropdown-item" href="{% url 'users:homemanager' %}">Менеджер</a>
+    </li>
+  {% endif %}
+
+    <li>
+      <a class="dropdown-item" href="#">Дисконтная карта</a>
+    </li>
+
+    <li>
+      <a class="dropdown-item" href="{% url 'users:password_change' %}">Изменить пароль</a>
+    </li>
+
+    <li>
+      <a class="dropdown-item" href="#">Редактировать профиль</a>
+    </li>
+
+    <li>
+      <form method="post" action="{% url 'users:logout' %}">
+        {% csrf_token %}
+        <button class="dropdown-item" aria-current="page" type="submit">Выход</button> </li>
+      </form>
+    </li>
+    
+</ul>
