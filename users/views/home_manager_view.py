@@ -28,6 +28,8 @@ class HomeManagerView(LoginRequiredMixin, ListView):
             return ""
 
     def get(self, request, *args, **kwargs):
+        """Метод проверки пользоватлей на доступ
+        к просмотру менеджера статей."""
         if self.request.user.is_superuser or self.request.user.is_superuser or self.request.user.is_prof_union:
             return super().get(request, *args, **kwargs)
         else:
