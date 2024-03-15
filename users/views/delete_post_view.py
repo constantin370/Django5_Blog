@@ -6,15 +6,10 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 from blog.models import Post
 
+from users.utils import CheckUsersMixin
 
-class DeleteManagerPostView(LoginRequiredMixin, DeleteView):
+class DeleteManagerPostView(CheckUsersMixin, LoginRequiredMixin, DeleteView):
     """Класс удаления статей."""
     template_name = "users/deletepost.html"
     model = Post
     success_url = "/manager/"
-
-    def get(self, request, *args, **kwargs):
-        if self.request.user.is_superuser or self.request.user.is_superuser or self.request.user.is_prof_union:
-            return super().get(request, *args, **kwargs)
-        else:
-            return redirect("blog:main_page")

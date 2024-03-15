@@ -6,11 +6,10 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 from blog.models import Post
 
+from users.utils import CheckUsersMixin
 
-# Create your views here.
 
-
-class HomeManagerView(LoginRequiredMixin, ListView):
+class HomeManagerView(CheckUsersMixin, LoginRequiredMixin, ListView):
     """Класс представления если пользователь залогинен."""
     template_name = "users/index.html"
     model = Post
@@ -24,14 +23,6 @@ class HomeManagerView(LoginRequiredMixin, ListView):
         if self.request.user.is_superuser or self.request.user.is_superuser or self.request.user.is_prof_union: # noqa
             queryset = Post.objects.filter(user=self.request.user).order_by("-id") # noqa
             return queryset
-        else:
-            return ""
-
-    def get(self, request, *args, **kwargs):
-        """Метод проверки пользоватлей на доступ
-        к просмотру менеджера статей."""
-        if self.request.user.is_superuser or self.request.user.is_superuser or self.request.user.is_prof_union:
-            return super().get(request, *args, **kwargs)
         else:
             return redirect("blog:main_page")
 
