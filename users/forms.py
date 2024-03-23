@@ -61,16 +61,8 @@ class UserRegisterForm(forms.ModelForm):
         сохраняем пользователя в базе данных."""
         user = super().save(commit=False)
         user.set_password(self.cleaned_data["password1"])
-        first_name = self.cleaned_data['first_name']
-        last_name = self.cleaned_data['last_name']
-        email = self.cleaned_data['email']
         if commit:
             user.save()
-            send_mail(subject='Follow the link to confirm registration!',
-            message=f'{first_name} {last_name} зарегестрировался',
-            from_email='django5_form@blog.net',
-            recipient_list=[email],
-            fail_silently=True,)
         return user
     
     class Meta:

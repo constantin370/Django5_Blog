@@ -11,11 +11,11 @@
     </li>
 
     <li>
-      <a class="dropdown-item" href="{% url 'reset_password' %}">Сброс пароля</a>
+      <a class="dropdown-item" href="{% url 'password_reset' %}">Сброс пароля</a>
     </li>
 
     <li>
-      <a class="dropdown-item" href="{% url 'users:password_change' %}">Изменить пароль</a>
+      <a class="dropdown-item" href="{% url 'password_change' %}">Изменить пароль</a>
     </li>
 
     <li>
@@ -23,7 +23,7 @@
     </li>
 
     <li>
-      <form method="post" action="{% url 'users:logout' %}">
+      <form method="post" action="{% url 'logout' %}">
         {% csrf_token %}
         <button class="dropdown-item" aria-current="page" type="submit">Выход</button> </li>
       </form>

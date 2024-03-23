@@ -1,17 +1,13 @@
-from django.shortcuts import redirect
-
 from django.views.generic import UpdateView
 
-from django.contrib.auth.mixins import LoginRequiredMixin
-
-from users.utils import CheckUsersMixin
+from users.mixins import LoginRequiredMixin
 
 from blog.models import Post
 
 from users.forms import PostForm
 
 
-class UpdateManagerPostView(CheckUsersMixin, LoginRequiredMixin, UpdateView):
+class UpdateManagerPostView(LoginRequiredMixin, UpdateView):
     """Класс редактирования статей."""
     template_name = "users/addpost.html"
     model = Post

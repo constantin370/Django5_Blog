@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.views.generic import ListView
 
 from blog.models.post_model import Post
@@ -10,5 +11,4 @@ class PostListView(ListView):
     template_name = "blog/index.html"
     context_object_name = "posts"
     queryset = Post.objects.filter(publish=True).order_by("-id")
-
     
