@@ -15,7 +15,7 @@ class LoginRequiredMixin(CustomLoginReqMixin):
             return super().get(request, *args, **kwargs)
         else:
             return redirect("blog:main_page")
-        
+
     def post(self, request, *args, **kwargs):
         """Метод проверки пользователей на доступ
         к возможности добавить статью."""

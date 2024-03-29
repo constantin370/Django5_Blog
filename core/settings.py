@@ -138,10 +138,12 @@ STATIC_URL = 'static/'
 
 MEDIA_ROOT = BASE_DIR / 'media'
 
-# Подключаем бэкенд filebased.EmailBackend:
-EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
-# Указываем директорию, в которую будут сохраняться файлы писем:
-EMAIL_FILE_PATH = BASE_DIR / 'sent_emails' 
+# # Подключаем бэкенд filebased.EmailBackend:
+# EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+# # Указываем директорию, в которую будут сохраняться файлы писем:
+# EMAIL_FILE_PATH = BASE_DIR / 'sent_emails' 
+
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

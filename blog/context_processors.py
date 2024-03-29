@@ -1,4 +1,4 @@
-from users.models import CustomUser
+from users.models.custom_user_model import CustomUser
 
 from django.shortcuts import get_list_or_404
 
