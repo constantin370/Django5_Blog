@@ -19,7 +19,7 @@
     </li>
 
     <li>
-      <a class="dropdown-item" href="#">Редактировать профиль</a>
+      <a class="dropdown-item" href="{% url 'users:update_user' request.user.pk %}">Редактировать профиль</a>
     </li>
 
     <li>

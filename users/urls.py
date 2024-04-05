@@ -6,6 +6,7 @@ from users.views.delete_post_view import DeleteManagerPostView
 from users.views.verify_email_view import VerifyEmailView
 from django.views.generic import TemplateView
 from users.views.register_create_user_view import RegistrationView
+from users.views.update_user_view import UpdateUserView
 
 
 app_name = "users"
@@ -18,9 +19,7 @@ urlpatterns = [
     path('deletepost/<int:pk>/', DeleteManagerPostView.as_view(), name='deletepost'),
     path('register/', RegistrationView.as_view(), name='register'),
     path('verify-email/<uidb64>/<token>/', VerifyEmailView.as_view(), name='verifyemail'),
-    path('confirm_email/', TemplateView.as_view(template_name='users/confirm_email.html'), name='confirmemail'),
-    path('email_confirmed/', TemplateView.as_view(template_name='users/email_confirmed.html'), name='emailconfirmed'),
-    path('invalid_verify/', TemplateView.as_view(template_name='users/invalid_verify.html'), name='invalidverify'),
+    path('update_user/<int:pk>/', UpdateUserView.as_view(), name='update_user'),
 
 ]
 

@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views.generic import View
 
@@ -23,7 +24,8 @@ class RegistrationView(View):
             email = form.cleaned_data.get("email")
             user = get_object_or_404(CustomUser, email=email)
             send_email_for_verify(request, user)
-            return redirect('users:confirmemail')
+            messages.info(request, "Вам на email отправленно письмо с сылкой для авторизации!")
+            return redirect('blog:main_page')
         
         context = {
             "form": form

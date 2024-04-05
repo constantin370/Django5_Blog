@@ -1,10 +1,13 @@
-from django.shortcuts import get_object_or_404, redirect
-from django.views.generic import View
+from django.contrib import messages
 from django.contrib.auth.tokens import default_token_generator
-from django.utils.http import urlsafe_base64_decode
-from users.models.custom_user_model import CustomUser
 from django.core.exceptions import ValidationError
 from django.contrib.auth import login
+from django.shortcuts import get_object_or_404, redirect
+from django.views.generic import View
+from django.utils.http import urlsafe_base64_decode
+
+from users.models.custom_user_model import CustomUser
+
 
 
 class VerifyEmailView(View):
@@ -24,5 +27,7 @@ class VerifyEmailView(View):
             user.is_active = True
             user.save()
             login(request, user)
-            return redirect('users:emailconfirmed')
-        return redirect('users:invalidverify')
+            messages.success(request, "Ваш Аккаунт активен!")
+            return redirect('blog:main_page')
+        messages.error(request, "Ваша ссылка не корректна, залогиньтесь снова")
+        return redirect('blog:main_page')

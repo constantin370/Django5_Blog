@@ -1,0 +1,13 @@
+{% if messages %}
+  <div class="card col-4 m-3">
+    <div class="card-body">
+      {% for message in messages %}
+        <div class "alert {% if message.tags == 'error' %} alert-danger {% else %} alert-{{message.tags}} {% endif %}"
+              role="alert">
+        {{ message }}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}
+

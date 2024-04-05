@@ -1,16 +1,9 @@
 from django import forms
-
-from django.core.mail import send_mail
-
 from django.contrib.auth import password_validation
-
 from django.core.exceptions import ValidationError
-
 from django.utils.translation import gettext_lazy as _
-
 from blog.models import Post
-
-from users.models import CustomUser
+from users.models.custom_user_model import CustomUser
 
 
 class PostForm(forms.ModelForm):
@@ -36,7 +29,7 @@ class UserRegisterForm(forms.ModelForm):
     password2 = forms.CharField(label="Повторите пароль:",
                                  widget=forms. PasswordInput,
                                  help_text="Для проверки введите пороль еще раз")
-    
+
     def clean_password(self):
         """Метод проверки пароля."""
         password1 = self.cleaned_data['password1']
@@ -78,3 +71,10 @@ class UserRegisterForm(forms.ModelForm):
             'password1',
             'password2'
             )
+        
+
+class UpdateUserForm(forms.ModelForm):
+    """Форма редактирования данных пользователя."""
+    class Meta:
+        model = CustomUser
+        fields = ['username', 'first_name', 'last_name']

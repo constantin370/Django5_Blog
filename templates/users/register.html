@@ -7,11 +7,17 @@
   <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
     <h1 class="h2"> Регистрация </h1>
   </div>
-  <form action="{% url 'users:register' %}" method="post">
-    {% csrf_token %}
-    {{form|crispy}}
-    <button class="w-100 btn btn-primary"type="submit">Зарегестрироваться</button>
-    <span class="required">*</span>
-  </form>
+  <div class="card col-4 m-3">
+    <div class="card-body">
+      <form action="{% url 'users:register' %}" method="post">
+        {% csrf_token %}
+        {{form|crispy}}
+        <button class="w-100 btn btn-primary"type="submit">Зарегестрироваться</button>
+        <span class="required">*</span>
+      </form>
+    </div>
+  </div>
 </div>  
 {% endblock %}
+
+

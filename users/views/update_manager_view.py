@@ -1,9 +1,6 @@
 from django.views.generic import UpdateView
-
-from users.mixins import LoginRequiredMixin
-
 from blog.models import Post
-
+from users.mixins import LoginRequiredMixin
 from users.forms import PostForm
 
 

@@ -10,3 +10,4 @@ urlpatterns = [
     path('post/<int:pk>/', PostDetailView.as_view(), name='single_post'),
     path('cat/<int:pk>/', PostListViewForCustumUser.as_view(), name='cat_post'),
 ]
+
