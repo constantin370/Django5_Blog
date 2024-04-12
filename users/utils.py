@@ -26,8 +26,8 @@ def send_email_for_verify(request, user):
 
 
 def generate_user_login_password(request, user):
-    """Фукнция генерации логина и пароля
-    для пользоватлей зарегестрировавшихся по номеру телефона."""
+    """Фукнция генерации пароля для пользоватлей
+    зарегестрировавшихся по номеру телефона."""
 
     if user.phone_number is not None:
 
