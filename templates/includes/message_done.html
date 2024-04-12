@@ -4,10 +4,9 @@
       {% for message in messages %}
         <div class "alert {% if message.tags == 'error' %} alert-danger {% else %} alert-{{message.tags}} {% endif %}"
               role="alert">
-        {{ message }}
+          {{ message }}
         </div>
       {% endfor %}
     </div>
   </div>
 {% endif %}
-

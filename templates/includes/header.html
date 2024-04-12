@@ -1,14 +1,11 @@
 {% load static %}
 <header>
-  <link rel="stylesheet" href="{% static 'css/stylesheet.css'%}" type="text/css">
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container">
       {% with request.resolver_match.view_name as view_name %}
-      <ul>
+      <ul class="nav nav-pills">
         <li class="nav-item">
-          <a class="nav-link active" href="{% url 'blog:main_page' %}">
-            Социальный Блог
-          </a>
+          <a class="nav-link" href="{% url 'blog:main_page' %}">Социальный Блог</a>
           </li>
       </ul>
 
@@ -19,9 +16,7 @@
                 href="{% url 'blog:main_page' %}">Главная страница</a>
           </li>
           <li class="nav-item dropdown" >
-            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Профсоюзы
-            </a>
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Профсоюзы</a>
             {% include "includes/dropdown_menu_proff_union.html" %}
           </li>
 
@@ -34,10 +29,18 @@
             </li>
           {% else %}
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="{% url 'login' %}">Вход</a>
+              <a class="nav-link {% if view_name == 'users:register' %} active {% endif %}"
+                  aria-current="page" href="{% url 'users:register' %}">Регистрация по email</a>
             </li>
+
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="{% url 'users:register' %}">Регистрация</a>
+              <a class="nav-link {% if view_name == 'users:register_phone' %} active {% endif %}"
+                  aria-current="page" href="{% url 'users:register_phone' %}">Регистрация по номеру телефона</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link {% if view_name == 'login' %} active {% endif %}"
+                  aria-current="page" href="{% url 'login' %}">Вход</a>
             </li>
           {% endif %}
 

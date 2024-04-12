@@ -1,0 +1,142 @@
+
+a.nav-link {
+    /*** headers.html ***/
+    font-family:Times; 
+    font-style: normal; 
+    color:black;
+    font-size:18px;
+    text-shadow: 2px 2px 4px rgba(146, 146, 146, 0.493);
+}
+
+h3.mb-0 {
+    /*** index.html ***/
+    font-family:Times; 
+    font-style: normal; 
+    color:black;
+    font-size:24px;
+    letter-spacing: 0.3pt;
+    text-shadow: 2px 2px 4px rgba(173, 173, 173, 0.493);
+}
+
+div.d-flex {
+    /*** index.html ***/
+    font-family:Times; 
+    font-style: normal;
+    color:black;
+}
+
+a.stretched-link {
+    /*** index.html ***/
+    font-family:Times; 
+    font-style: normal; 
+    color:blue;
+    font-size:16px;
+    letter-spacing: 0.3pt;
+    text-decoration: none;
+}
+
+p.card-text {
+    /*** index.html ***/
+    font-family:Times; 
+    font-style: normal; 
+    color:black;
+    font-size:18px;
+}
+
+strong.d-inline-block {
+     /*** index.html ***/
+    font-family:Times; 
+    font-style: normal;
+    font-weight: bold;
+    color:blue;
+    font-size:18px;
+    letter-spacing: 0.3pt;
+    text-shadow: 2px 2px 4px rgba(173, 173, 173, 0.493);
+}
+
+div.mb-1 {
+    /*** index.html ***/
+   font-family:Times; 
+   font-style: normal; 
+   color:black;
+   font-size:18px;
+}
+
+p.blog-post-meta {
+    /*** single_post.html ***/
+    font-family:Times; 
+    font-style: normal; 
+    color:black;
+    font-size:18px;
+    
+}
+
+h2.blog-post-title {
+    /*** single_post.html ***/
+    font-family:Times; 
+    font-style: normal;
+    font-weight: bold;
+    color:black;
+    font-size:28px;
+    text-shadow: 2px 2px 4px rgba(173, 173, 173, 0.493);
+}
+
+article.blog-post {
+    /*** single_post.html ***/
+    font-family:Times; 
+    font-style: normal; 
+    color:black;
+    font-size:21px;
+    text-align: justify;
+    line-height: 1.5;
+    text-shadow: 2px 2px 4px rgba(173, 173, 173, 0.493);
+}
+
+a.page-link {
+    /*** paginator.html ***/
+    font-family:Times; 
+    font-style: normal;
+    font-size:17px;
+}
+
+span.asteriskField {
+    /*** register.html ***/
+    color: red;
+}
+
+.a_register {
+    font-family:Times;
+    text-decoration: none;
+}
+label.form-label {
+   /*** register.html ***/
+    font-family:Times; 
+    font-style: normal; 
+    color:black;
+    font-size:18px;
+}
+
+div.form-text {
+    /*** register.html ***/
+    font-family:Times; 
+    font-style: normal; 
+    color:grey;
+    font-size:14px;
+}
+
+button.w-100 {
+    /*** register.html ***/
+    font-family:Times;
+    font-style: normal;
+    font-size:18px;
+}
+
+.pfooter {
+    /*** footer.html ***/
+    font-family:Times; 
+    font-style: normal;
+    font-weight: bold;
+    color:grey;
+    font-size:20px;
+    text-shadow: 2px 2px 4px rgba(173, 173, 173, 0.493);
+}

@@ -12,6 +12,10 @@ Django = "5"
 django-crispy-forms = "^2.1"
 crispy-bootstrap5 = "^2023.10"
 six = "^1.16.0"
+django-phonenumber-field = "^7.3.0"
+phonenumberslite = "^8.13.34"
+pywhatkit = "^5.4"
+keyboard = "^0.13.5"
 
 [tool.poetry.group.dev.dependencies]
 pillow = "^10.2.0"

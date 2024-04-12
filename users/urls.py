@@ -7,6 +7,7 @@ from users.views.verify_email_view import VerifyEmailView
 from django.views.generic import TemplateView
 from users.views.register_create_user_view import RegistrationView
 from users.views.update_user_view import UpdateUserView
+from users.views.users_register_phone_view import users_register_phone_view
 
 
 app_name = "users"
@@ -20,6 +21,7 @@ urlpatterns = [
     path('register/', RegistrationView.as_view(), name='register'),
     path('verify-email/<uidb64>/<token>/', VerifyEmailView.as_view(), name='verifyemail'),
     path('update_user/<int:pk>/', UpdateUserView.as_view(), name='update_user'),
+    path('register_phone/', users_register_phone_view, name='register_phone'),
 
 ]
 

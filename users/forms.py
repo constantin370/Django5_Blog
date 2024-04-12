@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth import password_validation
 from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
+
 from blog.models import Post
 from users.models.custom_user_model import CustomUser
 
@@ -27,7 +28,7 @@ class UserRegisterForm(forms.ModelForm):
                                  help_text=password_validation.password_validators_help_text_html())
     
     password2 = forms.CharField(label="Повторите пароль:",
-                                 widget=forms. PasswordInput,
+                                 widget=forms.PasswordInput,
                                  help_text="Для проверки введите пороль еще раз")
 
     def clean_password(self):
@@ -46,7 +47,7 @@ class UserRegisterForm(forms.ModelForm):
             error = {'password2': ValidationError("Введеные пароли не совподают",
                                                   code="password_mismatch")}
             raise ValidationError(error)
-        
+
     def save(self, commit=True):
         """Метод save используется для сохранения данных пользователя.
         Мы устанавливаем для пользователя пароль, который он ввел
@@ -57,7 +58,7 @@ class UserRegisterForm(forms.ModelForm):
         if commit:
             user.save()
         return user
-    
+
     class Meta:
         """В классе Meta мы указываем модель CustomUser
         и поля, которые должны отображаться на форме -
@@ -66,12 +67,24 @@ class UserRegisterForm(forms.ModelForm):
         fields = (
             'email',
             'username',
-            'first_name',
-            'last_name',
             'password1',
             'password2'
             )
-        
+
+
+
+class UserRegisterPhoneForm(forms.ModelForm):
+    """Класс который представляет собой форму регистрации пользователей по номеру телефона."""
+    class Meta:
+        """В классе Meta мы указываем модель CustomUser
+        и поля, которые должны отображаться на форме -
+        email и username."""
+        model = CustomUser
+        fields = (
+            'email',
+            'phone_number',
+            )
+
 
 class UpdateUserForm(forms.ModelForm):
     """Форма редактирования данных пользователя."""

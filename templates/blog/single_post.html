@@ -4,11 +4,26 @@
 {% endblock %}
 
 {% block content %}
-  <img src="{{ post.image.url }}" height="220" alt="dots icon">
-  <article class="blog-post">
-    <h2 class="blog-post-title">{{ post.title }}</h2>
-      <p class="blog-post-meta"> <b>Дата создания:</b> {{ post.date_create }} <b>Автор:</b> <a href="#"> {{ post.user }}</a></p>
-    <hr>
-      <p class="fs-1">{{ post.text|linebreaks}}</p>
-  </article>
+    <div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+      <div class="center-screen">
+        <div class="col-auto d-none d-lg-block">
+
+          {% if post.image %}
+            <p><img src="{{ post.image.url }}" height="220" alt="dots icon"></p>
+          {% else %}
+            <p></p>
+          {% endif %}
+          
+        </div>
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+          <article class="blog-post">
+            <h2 class="blog-post-title">{{ post.title }}</h2>
+              <p class="blog-post-meta"> <b>Дата создания:</b> {{ post.date_create }} <b>Автор:</b>
+                <a style="text-decoration: none;" href="#"> {{ post.user }}</a></p>
+            <hr>
+              <p class="fs-1">{{post.text|linebreaks}}</p>
+          </article>
+        </div>
+      </div>
+    </div>
 {% endblock %}

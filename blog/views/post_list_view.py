@@ -11,4 +11,5 @@ class PostListView(ListView):
     template_name = "blog/index.html"
     context_object_name = "posts"
     queryset = Post.objects.filter(publish=True).order_by("-id")
+    paginate_by = 3
     

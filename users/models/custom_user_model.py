@@ -1,10 +1,8 @@
 from django.db import models
-
 from django.contrib.auth.models import AbstractUser
-
 from users.models.user_manager_model import UserManager
-
 from django.utils.translation import gettext_lazy as _
+from phonenumber_field.modelfields import PhoneNumberField # type: ignore
 
 
 class CustomUser(AbstractUser):
@@ -13,7 +11,11 @@ class CustomUser(AbstractUser):
     objects = UserManager
 
     email = models.EmailField(verbose_name="Эллектронная почта", unique=True)
-    
+
+    password = models.CharField(verbose_name="Пароль: ", unique=True, max_length=255)
+
+    phone_number = PhoneNumberField(verbose_name="Номер телефона", unique=True, null=True, blank=False)
+
     is_prof_union = models.BooleanField(verbose_name="Является профсоюзом", default=False)
 
     is_active = models.BooleanField(
