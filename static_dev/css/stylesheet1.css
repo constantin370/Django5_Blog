@@ -131,6 +131,15 @@ button.w-100 {
     font-size:18px;
 }
 
+#p_message {
+    /*** message_done.html ***/
+    font-family:Times !important;
+    font-style: normal !important;
+    color:black !important;
+    font-weight: bold !important;
+    font-size:24px !important;
+}
+
 .pfooter {
     /*** footer.html ***/
     font-family:Times; 
