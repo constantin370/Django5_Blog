@@ -7,7 +7,7 @@ from django.views.generic import View
 from django.utils.http import urlsafe_base64_decode
 
 from users.models.custom_user_model import CustomUser
-
+from users.utils import generate_discont_number
 
 
 class VerifyEmailView(View):
@@ -25,6 +25,7 @@ class VerifyEmailView(View):
         user = self.get_user(uidb64)
         if user is not None and default_token_generator.check_token(user, token):
             user.is_active = True
+            user.discont_card = generate_discont_number()
             user.save()
             login(request, user)
             messages.success(request, "Ваш Аккаунт активен!")

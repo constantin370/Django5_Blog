@@ -9,6 +9,7 @@ from django.contrib.auth.tokens import default_token_generator
 from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
 
+from discontcard.models import DiscontCard
 
 def send_email_for_verify(request, user):
     """Создание токена для подтверждения почты."""
@@ -40,3 +41,12 @@ def generate_user_login_password(request, user):
         return pywhatkit.sendwhatmsg_instantly(phone_no=f'{user.phone_number}',
                                         message=f'пароль: {new_pass}',
                                         wait_time=50)
+    
+def generate_discont_number():
+    """Функция предоставления номера последней карты."""
+    discont_number = DiscontCard.objects.all().order_by('-id')[:1]
+    discont_number_int = int(str(discont_number[0]))
+    discont_number_int = discont_number_int + 1
+    object = DiscontCard.objects.create(number=discont_number_int,
+                                        procent=0.01)
+    return object
