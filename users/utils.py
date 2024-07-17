@@ -11,6 +11,7 @@ from django.template.loader import render_to_string
 
 from discontcard.models import DiscontCard
 
+
 def send_email_for_verify(request, user):
     """Создание токена для подтверждения почты."""
     current_site = get_current_site(request)
