@@ -27,6 +27,7 @@ urlpatterns = [
     path('', include('blog.urls')),
     path('manager/', include('users.urls')),
     path('discontcard/', include('discontcard.urls')),
+    path('__debug__/', include('debug_toolbar.urls')),
 ]
 
 

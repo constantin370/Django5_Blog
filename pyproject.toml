@@ -16,6 +16,7 @@ django-phonenumber-field = "^7.3.0"
 phonenumberslite = "^8.13.34"
 pywhatkit = "^5.4"
 keyboard = "^0.13.5"
+django-debug-toolbar = "^4.4.6"
 
 [tool.poetry.group.dev.dependencies]
 pillow = "^10.2.0"
