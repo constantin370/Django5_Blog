@@ -9,7 +9,7 @@ from phonenumber_field.modelfields import PhoneNumberField # type: ignore
 class CustomUser(AbstractUser):
     """Настраиваемая модель пользователя."""
 
-    objects = UserManager
+    objects = UserManager()
 
     email = models.EmailField(verbose_name="Эллектронная почта",
                               unique=True)

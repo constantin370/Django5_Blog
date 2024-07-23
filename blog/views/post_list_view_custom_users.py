@@ -12,4 +12,4 @@ class PostListViewForCustumUser(ListView):
 
     def get_queryset(self, **kwargs):
         pk = self.kwargs['pk']
-        return Post.objects.filter(publish=True, user__pk=pk).order_by("-id")
+        return Post.objects.filter(publish=True, user__pk=pk).order_by("-id").select_related()
